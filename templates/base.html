@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My System</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    {% load static %}
+    <link REL="SHORTCUT ICON" HREF="{% static "image/favicon.ico" %}"/>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'blog/css/blogstyles.css' %}">
+</head>
+<body>
+    <!-- top ================================================== -->
+    <div class="navbar-wrapper">
+        <div class="container">
+            <nav class="navbar navbar-inverse navbar-static-top">
+                <div class="container">
+                    <p class="navbar-brand">{% block navbrand %}{% endblock %}</p>
+                    <div id="navbar" class="navbar-collapse collapse">
+                        <ul class="nav navbar-nav">
+                            <li {% if nav_active == "home" %} class="active" {% endif %}><a href="{% url 'index' %}">Home</a></li>
+                            <li {% if nav_active == "blogs" %} class="active" {% endif %}><a href="{% url 'blogs' %}">Blogs</a></li>
+                            {% if user.is_authenticated %}
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{ user.get_username }}<span class="caret"></span></a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="{% url 'logout'%}?next={{request.path}}">Logout</a></li>
+                                        <li><a href="#">Create Blog</a></li>
+                                    </ul>
+                                </li>
+                            {% else %}
+                             <li><a href="{% url 'login'%}?next={{request.path}}">Login</a></li>
+                            {% endif %}
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <!-- /.top -->
+    <hr class="featurette-divider">
+    <div class="container blog">
+        {% block content %}{% endblock %}
+        <!-- FOOTER -->
+        <footer>
+            <p class="pull-right"><a href="#">Back to top</a></p>
+            <p class="brand">&copy; 2020.Me &middot; My Application</p>
+        </footer>
+    </div>
+</body>
+</html>

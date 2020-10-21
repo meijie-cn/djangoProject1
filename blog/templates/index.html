@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block navbrand %}Blog{% endblock %}
+{% block content %}
+  <h1>Blog Summary</h1>
+  <p>The blogs has the following record counts:</p>
+  <ul>
+    <li><strong>Blogs:</strong> {{ num_blogs }}</li>
+  </ul>
+{% endblock %}

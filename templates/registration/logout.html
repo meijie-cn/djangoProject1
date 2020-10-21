@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+
+{% block navbrand %}Auth{% endblock %}
+{% block content %}
+    <h1>Logout</h1>
+<p>You have Logged out successfully!</p>
+
+<a href="{% url 'login'%}">Click here to login again.</a>
+{% endblock %}

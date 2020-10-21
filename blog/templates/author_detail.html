@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block navbrand %}Author List{% endblock %}
+{% block content %}
+  <h1>Author blog list</h1>
+    {% if blog_list %}
+    <ul>
+    {% for blog in blog_list %}
+        <li><a href="{{ blog.get_absolute_url }}" blog-list>{{ blog.title }}</a> ({{blog.author}}) comments: {{ blog.get_comments.count }}</li>
+    {% endfor %}
+    </ul>
+  {% else %}
+        <p>There are no blogs.</p>
+  {% endif %}
+{% endblock %}

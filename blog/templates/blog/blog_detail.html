@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block navbrand %}Blog List{% endblock %}
+{% block content %}
+  <h1>Blog Detail</h1>
+  <h2>Title: {{ blog.title }}</h2>
+    <p><strong>Author:</strong> <a href="{% url 'author-detail' blog.author.id %}">{{ blog.author }}</a></p>
+    <p><strong>Content:</strong> {{ blog.content }}</p>
+
+    <div style="margin-left:20px;margin-top:20px">
+        <h4>Comments</h4>
+        {% for comment in blog.get_comments %}
+            <p>Author: {{ comment.author }}</p>
+            <p>{{ comment.reply }}</p>
+        {% endfor %}
+    </div>
+{% endblock %}

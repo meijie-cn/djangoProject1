@@ -1,0 +1,36 @@
+.navbar-wrapper {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 20;
+}
+.navbar-wrapper > .container {
+  padding-right: 0;
+  padding-left: 0;
+}
+.navbar-wrapper .navbar {
+  padding-right: 15px;
+  padding-left: 15px;
+}
+.navbar-wrapper .navbar .container {
+  width: auto;
+}
+.blog .col-lg-4 {
+  margin-bottom: 20px;
+  text-align: center;
+}
+.blog h2 {
+  font-weight: normal;
+}
+.blog .col-lg-4 p {
+  margin-right: 10px;
+  margin-left: 10px;
+}
+.brand{
+  background-color:aliceblue;
+}
+.featurette-divider {
+  margin: 25px 0; /* Space out the Bootstrap <hr> more */
+
+}
